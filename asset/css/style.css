@@ -1,5 +1,5 @@
 .bg2{
-    background: indigo;
+    background: rgba(76, 0, 130, 0.234);
 }
 .bg22{
     background-color: indigo;
@@ -7,7 +7,7 @@
 .sosial{
     z-index: 100;
 }
-.susialKanan{
+.sosialKanan{
     z-index: 100;
 }
 .wa{
@@ -92,6 +92,14 @@
     background-color: indigo;
 }
 
+.nav-link:hover{
+    color: white;
+    font-style: unset;
+}
+
+.ungu{
+    background: #800080;
+}
 
 
 

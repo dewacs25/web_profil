@@ -73,7 +73,7 @@ $kontak = mysqli_fetch_assoc($sqlKontak);
 
     <div class="card text-bg-dark" style="min-height: 100vh; max-height: 100vh; ">
 
-        <img src="asset/img/gambar3.jpg" class="card-img animate__animated animate__fadeInUp opacity-25" alt="" style="min-height: 100vh; max-height: 100vh; background-color: black;">
+        <img src="asset/img/gambar4.jpeg" class="card-img animate__animated animate__fadeInUp opacity-25" alt="" style="min-height: 100vh; max-height: 100vh; background-color: black;">
 
         <div class="card-img-overlay position-absolute top-50 start-50 translate-middle text-center text-light w-100">
             <h5 class="animate__animated animate__fadeInUp">Hi, I am </h5>
@@ -129,7 +129,7 @@ $kontak = mysqli_fetch_assoc($sqlKontak);
                         ?>
                             <label class="mt-2" for=""><?= $row['nama_skil'] ?> :</label>
                             <div class="progress ">
-                                <div class="progress-bar bg-indigo" role="progressbar" aria-label="Example with label" style="width: <?= $row['presentase'] ?>%;" aria-valuenow="<?= $row['presentase'] ?>" aria-valuemin="0" aria-valuemax="100"><?= $row['presentase'] ?>%</div>
+                                <div class="progress-bar" role="progressbar" aria-label="Example with label" style="background: rgba(76, 0, 130, 100); width: <?= $row['presentase'] ?>%;" aria-valuenow="<?= $row['presentase'] ?>" aria-valuemin="0" aria-valuemax="100"><?= $row['presentase'] ?>%</div>
                             </div>
                         <?php } ?>
 
@@ -172,14 +172,14 @@ $kontak = mysqli_fetch_assoc($sqlKontak);
                             <div class="table">
                                 <!-- <h6 class="category text-dark"><i class="fa fa-university"></i> Law</h6> -->
                                 <h4 class="card-caption">
-                                    <a href="#"><?= $rows['judul'] ?></a>
+                                    <a href="a.php?id=<?= $rows['id_portofolio'] ?>"><?= $rows['judul'] ?></a>
                                 </h4>
                                 <p class="card-description"><?= $rows['text']  ?></p>
                                 <div class="ftr">
                                     <!-- <div class="author">
                                     <a href="#"> <img src="http://adamthemes.com/demo/code/cards/images/avatar3.png" alt="..." class="avatar img-raised"> <span>Mary Dunst</span> </a>
                                 </div> -->
-                                    <div class="stats"> <i class="fa fa-clock-o"></i> 10 min </div>
+                                    <div class="stats"> <i class="fa fa-clock-o"></i> <?= $rows['tgl'] ?> </div>
                                 </div>
                             </div>
                         </div>
