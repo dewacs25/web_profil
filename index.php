@@ -45,7 +45,7 @@ $kontak = mysqli_fetch_assoc($sqlKontak);
 
 
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-black header_nav " style="border-bottom: 5px solid indigo; z-index: 100;" id="header">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black header_nav animate__animated animate__fadeInDown" style="border-bottom: 5px solid indigo; z-index: 100;" id="header">
         <div class="container-fluid">
             <a class="navbar-brand " style="font-family: cursive;" href="#"><b>Rm.Haudy Al-Kautsar</b> </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -57,10 +57,10 @@ $kontak = mysqli_fetch_assoc($sqlKontak);
                         <a class="nav-link  " style="color: indigo;" aria-current="page" href="#home">Home</a>
                     </li>
                     <li class="nav-item ms-3">
-                        <a class="nav-link "  style="color: indigo;"href="#about">About Me</a>
+                        <a class="nav-link " style="color: indigo;" href="#about">About Me</a>
                     </li>
                     <li class="nav-item ms-3">
-                        <a class="nav-link "  style="color: indigo;"href="#portofolio">Portofolio</a>
+                        <a class="nav-link " style="color: indigo;" href="#portofolio">Portofolio</a>
                     </li>
                     <li class="nav-item ms-3">
                         <a class="nav-link  " style="color: indigo;" href="#contac">Contac</a>
@@ -164,7 +164,7 @@ $kontak = mysqli_fetch_assoc($sqlKontak);
 
                 ?>
                     <div class="col-lg-4 col-12">
-                        <div class="card card-blog">
+                        <div class="card card-blog" style="box-shadow: -5px 15px 10px  rgba(75,0,130);">
                             <div class="card-image">
                                 <a href="#"> <img class="img" src="admin/public/img/<?= $rows['gambar'] ?>"> </a>
                                 <div class="ripple-cont"></div>
@@ -174,7 +174,7 @@ $kontak = mysqli_fetch_assoc($sqlKontak);
                                 <h4 class="card-caption">
                                     <a href="a.php?id=<?= $rows['id_portofolio'] ?>"><?= $rows['judul'] ?></a>
                                 </h4>
-                                <p class="card-description"><?= $rows['text']  ?></p>
+                                <p class="card-description"><?= substr($rows['text'], 0, 223) ?></p>
                                 <div class="ftr">
                                     <!-- <div class="author">
                                     <a href="#"> <img src="http://adamthemes.com/demo/code/cards/images/avatar3.png" alt="..." class="avatar img-raised"> <span>Mary Dunst</span> </a>
@@ -258,15 +258,15 @@ $kontak = mysqli_fetch_assoc($sqlKontak);
                 <form action="" method="POST">
                     <div class="input-group mb-3">
                         <span class="input-group-text bg-text-light border-0" id="basic-addon1"><i class="fa-solid fa-user"></i></span>
-                        <input type="text" name="username" class="form-control rounded-0" placeholder="Name" aria-label="Username" aria-describedby="basic-addon1">
+                        <input required type="text" name="username" class="form-control rounded-0" placeholder="Name" aria-label="Username" aria-describedby="basic-addon1">
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text bg-text-light border-0" id="basic-addon1">@</span>
-                        <input type="text" name="email" class="form-control rounded-0 " placeholder="Email" aria-label="Username" aria-describedby="basic-addon1">
+                        <input required type="text" name="email" class="form-control rounded-0 " placeholder="Email" aria-label="Username" aria-describedby="basic-addon1">
                     </div>
                     <div class="input-group">
                         <span class="input-group-text"><i class="fa-solid fa-message"></i></span>
-                        <textarea class="form-control" name="isi" aria-label="With textarea"></textarea>
+                        <textarea required class="form-control" name="isi" aria-label="With textarea"></textarea>
                     </div>
 
                     <button type="submit" name="kirim" class="btn btn-secondary mt-3 rounded-4 ps-4 pe-4">Kirim</button>
@@ -329,7 +329,7 @@ $kontak = mysqli_fetch_assoc($sqlKontak);
     </script>
 
 
-    <?= get_client_ip(); ?>
+
 </body>
 
 </html>
@@ -354,6 +354,44 @@ function get_client_ip()
         $ipaddress = 'IP tidak dikenali';
     return $ipaddress;
 }
+
+function get_client_browser()
+{
+    $browser = '';
+    if (strpos($_SERVER['HTTP_USER_AGENT'], 'Netscape'))
+        $browser = 'Netscape';
+    else if (strpos($_SERVER['HTTP_USER_AGENT'], 'Firefox'))
+        $browser = 'Firefox';
+    else if (strpos($_SERVER['HTTP_USER_AGENT'], 'Chrome'))
+        $browser = 'Chrome';
+    else if (strpos($_SERVER['HTTP_USER_AGENT'], 'Opera'))
+        $browser = 'Opera';
+    else if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE'))
+        $browser = 'Internet Explorer';
+    else
+        $browser = 'Other';
+    return $browser;
+}
+
+
+
+$browser = get_client_browser();
+// var_dump($browser);
+$os = $_SERVER['HTTP_USER_AGENT'];
+
+$ip = get_client_ip();
+$irr = rand();
+
+$selecSql = mysqli_query($koneksi, "SELECT * FROM tb_akses WHERE ip='$ip' AND browser='$browser' AND os='$os'");
+$selec = mysqli_fetch_assoc($selecSql);
+
+if ($selec['ip'] == $ip && $selec['browser'] == $browser && $selec['os'] == $os) {
+} else {
+
+    $masuk = mysqli_query($koneksi, "INSERT INTO `tb_akses`(`id_akses`, `ip`, `browser`, `os`) VALUES ('$irr','$ip','$browser','$os')");
+}
+
+
 
 
 

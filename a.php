@@ -25,7 +25,7 @@ $judul = mysqli_fetch_assoc($sqlisi2);
 <body style="background-color: #0E0B16;">
 
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-black header_nav " style="border-bottom: 5px solid indigo; z-index: 100;" id="header">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black header_nav animate__animated animate__fadeInDown" style="border-bottom: 5px solid indigo; z-index: 100;" id="header">
         <div class="container-fluid">
             <a class="navbar-brand " style="font-family: cursive;" href="#"><b>Rm.Haudy Al-Kautsar</b> </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -57,11 +57,11 @@ $judul = mysqli_fetch_assoc($sqlisi2);
             <div class="col-lg-7 col-12 ">
                 <div class="card " style=" min-height: 28rem; box-shadow: 8px 15px 8px  rgba(75,0,130);">
                     <div class="card-body">
-                        <img src="admin/public/img/<?= $judul['gambar'] ?>" class="img-top w-100" alt="">
+                        <img src="admin/public/img/<?= $judul['gambar'] ?>" class="img-top w-100 animate__animated animate__backInLeft" alt="">
 
-                        <h2 class="card-title mt-4"><b><?= $judul['judul'] ?></b> <span class="fs-6 opacity-25"><?= $judul['tgl'] ?></span></h2>
+                        <h2 class="card-title mt-4 text-start animate__animated animate__fadeIn"><b><?= $judul['judul'] ?></b> <span class="fs-6 opacity-25"><?= $judul['tgl'] ?></span></h2>
                         <br>
-                        <span class="card-subtitle mb-2 isiii"><?= $judul['text'] ?></span>
+                        <span class="card-subtitle mb-2 isiii animate__animated animate__fadeIn"><?= $judul['text'] ?></span>
                     </div>
                 </div>
             </div>
@@ -84,7 +84,7 @@ $judul = mysqli_fetch_assoc($sqlisi2);
                                 <tbody>
                                     <?php
                                     // $id = $_GET['id'];
-                                    $sqlisimateeri = mysqli_query($koneksi, "SELECT * FROM tb_portofolio WHERE id_portofolio='$id' ");
+                                    $sqlisimateeri = mysqli_query($koneksi, "SELECT * FROM tb_portofolio  ");
                                     while ($isi = mysqli_fetch_assoc($sqlisimateeri)) {
                                     ?>
                                         <?php if ($isi['judul'] == $judul['judul']) { ?>
@@ -93,9 +93,8 @@ $judul = mysqli_fetch_assoc($sqlisi2);
                                             </tr>
                                         <?php } else { ?>
 
-                                            <tr class="">
-                                                <td><?= $isi['judul'] ?></td>
-                                                <td><a href="a.php?id=<?= $isi['id_portofolio'] ?>"><i class="fa-solid fa-circle-play"></i></a></td>
+                                            <tr class="" style="box-shadow: 5px 5px 5px  rgba(0,0,0,5);">
+                                                <td><a class="link-dark text-decoration-none" href="a.php?id=<?= $isi['id_portofolio'] ?>"><?= $isi['judul'] ?></i></a></td>
                                             </tr>
                                         <?php } ?>
                                     <?php } ?>

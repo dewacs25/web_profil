@@ -1,30 +1,36 @@
-.bg2{
+.bg2 {
     background: rgba(76, 0, 130, 0.234);
 }
-.bg22{
+
+.bg22 {
     background-color: indigo;
 }
-.sosial{
+
+.sosial {
     z-index: 100;
 }
-.sosialKanan{
+
+.sosialKanan {
     z-index: 100;
 }
-.wa{
+
+.wa {
     position: fixed;
     left: 0;
     top: 52.7%;
     background-color: green;
     padding: 15px;
 }
-.fb{
+
+.fb {
     position: fixed;
     left: 0;
     top: 44.7%;
     background-color: blue;
     padding: 14.2px;
 }
-.ig{
+
+.ig {
     position: fixed;
     left: 0;
     top: 61.1%;
@@ -32,21 +38,23 @@
     padding: 15px;
 }
 
-.dc{
+.dc {
     position: fixed;
     right: 0;
     top: 52.7%;
     background-color: rgb(66, 66, 66);
     padding: 15.5px;
 }
-.lk{
+
+.lk {
     position: fixed;
     right: 0;
     top: 44.7%;
     background-color: blue;
     padding: 16.5px;
 }
-.tw{
+
+.tw {
     position: fixed;
     right: 0;
     top: 61.1%;
@@ -54,67 +62,55 @@
     padding: 15px;
 }
 
-.wa:hover{
-   
-    padding-left: 25px;
-    transition: all 300ms;
-}
-.fb:hover{
-   
+.wa:hover {
+
     padding-left: 25px;
     transition: all 300ms;
 }
 
-.ig:hover{
-   
+.fb:hover {
+
+    padding-left: 25px;
+    transition: all 300ms;
+}
+
+.ig:hover {
+
     padding-left: 25px;
     transition: all 300ms;
 }
 
 
-.dc:hover{
-   
-    padding-right: 25px;
-    transition: all 300ms;
-}
-.tw:hover{
-   
+.dc:hover {
+
     padding-right: 25px;
     transition: all 300ms;
 }
 
-.lk:hover{
-   
+.tw:hover {
+
     padding-right: 25px;
     transition: all 300ms;
 }
-.bg-indigo{
+
+.lk:hover {
+
+    padding-right: 25px;
+    transition: all 300ms;
+}
+
+.bg-indigo {
     background-color: indigo;
 }
 
-.nav-link:hover{
+.nav-link:hover {
     color: white;
     font-style: unset;
 }
 
-.ungu{
+.ungu {
     background: #800080;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.pagination > li > a, .pagination > li > span{background-color:rgb(255, 255, 255)}
+.pagination > li.active > a, .pagination > li.active > span{background-color:indigo}
 
